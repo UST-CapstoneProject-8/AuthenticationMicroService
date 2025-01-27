@@ -1,0 +1,29 @@
+server:
+  port: 8082 # Port for the Authentication Microservice
+
+spring:
+  application:
+    name: authentication-service
+#  security:
+#    user:
+#      password: admin # Default user password for testing (remove in production)
+  feign:
+    hystrix:
+      enabled: true # Enable Hystrix for Feign client
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    compatibility-verifier:
+      enabled: false # Disable compatibility verifier
+    jwt:
+      secret: U2FuamF5R2FuZ2lyZWRsYUNhcHN0b25lUHJvamVjdA== # Secret key for JWT signing and validation
+      expiration: 3600000 # Token expiration time in milliseconds (1 hour)
+
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/ # Eureka server URL
+#    fetch-registry: true # Fetch service registry information
+#    register-with-eureka: true # Register this service with Eureka
